@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Card with Brush Stroke</title>
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> <!-- Include Font Awesome -->
+    <style>
+        /* Include your CSS here */
+        /* Blog Cards */
+.blog-card {
+    background-color: #0D0E0E;
+    border: none;
+    color: lightgray;
+    border-radius: 20px;
+    box-shadow: 0px 10px 15px 0px rgba(255, 255, 255, 0.14);
+    top: -30px;
+    padding-bottom: 25px;
+}
+
+.overlay {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.30);
+    z-index: 1;
+}
+
+.blog-card img {
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+    width: 100%;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    filter: brightness(1);
+    opacity: 0.9;
+}
+
+.fire-icon-wrapper {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.fire-icon {
+    font-size: 1.5rem;
+    color: #3FFF00;
+}
+
+.card-body {
+    padding: 20px 15px 0 15px;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.blog-card-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #ccc;
+    margin-top: 15px;
+}
+
+.blog-card-category {
+    font-size: 0.9rem;
+    color: #3FFF00;
+}
+
+.blog-card-date {
+    font-size: 0.9rem;
+    color: #fff;
+}
+
+.brush-stroke {
+    position: absolute;
+    top: 8%;
+    left: -15%;
+    transform: translate(-50%, -50%);
+    width: 50%; /* Adjust the width as needed */
+    z-index: 2; /* Ensure it appears above the card image */
+    height:auto ;
+    
+}
+.heading-overlay {
+    position: absolute;
+    top: 16%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+    color: white; /* Default text color */
+    font-size: 19px; /* Font size remains unchanged */
+    text-align: center;
+    width: 80%; /* Ensures it fits the brush stroke */
+    font-weight: bolder; /* Bold text */
+    z-index: 3; /* Ensures it appears above the brush stroke */
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .blog-card {
+        margin-bottom: 25px;
+        top: -68px; /* Move blog card up on small screens */
+    }
+
+    .navbar-nav .nav-item {
+        margin-left: 0;
+    }
+}
+
+@media (min-width: 992px) {
+    .blog-card {
+        margin-bottom: 30px;
+        top: -70px;
+    }
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .col-md-4 {
+        flex: 0 0 calc(33.333% - 10px);
+        margin-bottom: 30px;
+    }
+
+    .navbar-nav {
+        justify-content: center;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="col-md-4">
+        <div class="card blog-card">
+            <div class="overlay"></div>
+            <img src="jpeg-optimizer_ai-generated-8130375_1280.jpg" class="card-img-top" alt="Crypto Trends You Can't Ignore">
+            <img src="file (2).svg" class="brush-stroke" alt="Brush Stroke">
+            <div class="heading-overlay">
+                <span style="color: white;">IS GET RICH </span><span style="color: red;">A SCAM??</span>
+            </div>
+                       
+            <div class="fire-icon-wrapper">
+                <i class="fas fa-fire fire-icon"></i>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">The Modern Day Scam</h5>
+                <div class="blog-card-info">
+                    <div class="blog-card-category">Crypto</div>
+                    <div class="blog-card-date">Jan 11, 2025</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

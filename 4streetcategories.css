@@ -1,0 +1,389 @@
+  /* Inline critical CSS for the loader */
+  @keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.logo-img {
+    height: 60px;
+    /* Adjust the height as needed */
+    width: auto;
+    /* Maintain aspect ratio */
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+#loader {
+    position: fixed;
+    left: 0;
+    top: -12%;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    /* Ensure it stays on top */
+    background-color: rgba(0, 0, 0, 0.8);
+    /* Set the background color (white in this example) */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+    /* Prevent scrolling while the loader is visible */
+    font-family: 'Roboto', sans-serif;
+    /* Set default font */
+}
+
+body.loaded {
+    overflow: auto;
+}
+
+body.loaded #loader {
+    display: none;
+}
+
+body {
+    background-color: #2d3436;
+    background-image: linear-gradient(315deg, #2d3436 0%, #000000 74%);
+    scroll-behavior: smooth;
+    padding-top: 70px;
+    /* Adjust this value to ensure content starts below the navbar */
+    overflow-x: hidden;
+    /* Prevent horizontal scrollbar */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    /* Increased font weight for all headings */
+}
+
+/* Navbar Styling */
+.navbar {
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.3);
+    /* Existing background */
+    background-color: #000000;
+    /* Your desired background color */
+    z-index: 1000;
+    text-align: left;
+    font-size: 2rem;
+    font-weight: bold;
+    width: 100%;
+}
+
+.navbar-brand .white {
+    color: white;
+    font-size: 2rem;
+}
+
+.navbar-brand .green {
+    color: #3FFF00;
+    font-size: 2rem;
+}
+
+.navbar-nav .nav-link {
+    color: white;
+    font-weight: bold;
+    font-size: 1.1rem;
+    /* Adjust font size as needed */
+    padding: 10px 15px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #3FFF00;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
+
+.nav-item {
+    margin-left: 15px;
+}
+
+.nav-item .dropdown-menu {
+    background-color: rgba(0, 0, 0, 0.8);
+    border: none;
+    border-radius: 10px;
+}
+
+.nav-item .dropdown-item {
+    color: #ccc;
+    font-size: 0.9rem;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.nav-item .dropdown-item:hover {
+    color: #3FFF00;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.navbar-toggler {
+    border: none;
+    background: transparent;
+    /* Make sure the button is transparent */
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.navbar-toggler:focus {
+    outline: none;
+    box-shadow: none;
+    /* This removes any box-shadow that might appear */
+}
+
+.navbar-toggler-icon {
+    display: none;
+    /* Hide the default icon */
+}
+/* Add this to your existing CSS */
+/* CSS for the active link */
+.nav-link.active {
+font-weight: bold;
+color: #28a745; /* Or any color you prefer for the active link */
+}
+
+
+/* Finance Theme */
+.finance-theme .white {
+    color: white;
+}
+
+.finance-theme .green {
+    color: #3FFF00;
+}
+
+/* Blog Cards */
+.blog-card {
+    background-color: #0D0E0E;
+    border: none;
+    color: lightgray;
+    border-radius: 20px;
+    box-shadow: 0px 5px 20px rgba(255, 255, 255, 0.4);
+    /* Reduced intensity shadow */
+    top: -30px;
+    padding-bottom: 25px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    z-index: 1;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.blog-card:hover .overlay {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.heading-overlay {
+    position: absolute;
+    top: 35%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+    color: white;
+    /* Default text color */
+    font-size: 19px;
+    /* Font size remains unchanged */
+    text-align: center;
+    width: 80%;
+    /* Ensures it fits the brush stroke */
+    font-weight: bolder;
+    /* Bold text */
+    z-index: 3;
+    /* Ensures it appears above the brush stroke */
+    font-family: Arial, Helvetica, sans-serif;
+}
+.blog-card img {
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+    width: 100%;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    filter: brightness(1);
+    opacity: 1; /* Changed from 0.9 to 1 */
+    transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+.blog-card:hover img {
+    filter: brightness(1.1); /* Kept filter transition. Opacity is now unnecessary */
+}
+
+.fire-icon-wrapper {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.fire-icon {
+    font-size: 1.5rem;
+    color: #3FFF00;
+}
+
+.card-body {
+    padding: 20px 15px 0 15px;
+}
+
+.card-title {
+    font-size: 1.28rem;
+    /* Slightly larger for emphasis */
+    font-weight: 800;
+    /* Use an ExtraBold font weight */
+    line-height: 1.3;
+    /* Improve readability with line height */
+    margin-bottom: 0.75rem;
+}
+
+.blog-card-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #ccc;
+    margin-top: 15px;
+}
+
+.blog-card-category {
+    font-size: 0.9rem;
+    color: #3FFF00;
+}
+
+.blog-card-date {
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .blog-card {
+        margin-bottom: 25px;
+        top: -68px;
+        /* Move blog card up on small screens */
+    }
+
+    .navbar-nav .nav-item {
+        margin-left: 0;
+    }
+}
+
+@media (min-width: 992px) {
+    .blog-card {
+        margin-bottom: 30px;
+        top: -70px;
+    }
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .col-md-4 {
+        flex: 0 0 calc(33.333% - 10px);
+        margin-bottom: 30px;
+    }
+
+    .navbar-nav {
+        justify-content: center;
+    }
+    
+.card-title {
+    font-size: 1rem;
+}
+
+}
+
+
+/* Next Page Button Styles - styled to match website design*/
+.next-page-button {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    background: linear-gradient(115deg, #70f570, #49c628);
+    /* Consistent green */
+    color: #000;
+    /* Black text */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    z-index: 100;
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    /*Use the same font family as the rest of the website*/
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.5);
+    /* Added shadow for depth */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    /* Initially hidden */
+    visibility: hidden;
+    /* Initially hidden */
+}
+
+.next-page-button:hover {
+    background-color: #36d400;
+    box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.6);
+    /* Darker shadow on hover */
+}
+
+.next-page-button.visible {
+    opacity: 1;
+    /* Visible when the class is added */
+    visibility: visible;
+    /* Visible when the class is added */
+}
+
+
+/* Slide Out Animation */
+.slide-out {
+    animation: slideOut 0.5s forwards;
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}

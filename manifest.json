@@ -1,0 +1,20 @@
+{
+  "name": "4street Magazine",
+  "short_name": "4street Magazine",
+  "start_url": "4streetHomepage.html",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "icons": [
+      {
+          "src": "download-resizedaddy.com.png",
+          "sizes": "192x192",
+          "type": "image/png"
+      },
+      {
+          "src": "lion (1).png",
+          "sizes": "512x512",
+          "type": "image/png"
+      }
+  ]
+}

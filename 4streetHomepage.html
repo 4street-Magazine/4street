@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4street Magazine</title>
+    <link rel="manifest" href="manifest.json">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+
+        /* Inline critical CSS for the loader */
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .logo-img {
+            height: 50px; /* Adjust the height as needed */
+            width: auto; /* Maintain aspect ratio */
+          
+        }
+
+        #loader {
+            position: fixed;
+            left: 0;
+            top: -8%;
+            width: 100%;
+            height: 100%;
+            z-index: 9999; /* Ensure it stays on top */
+            background-color: rgba(0, 0, 0, 0.8); /* Set the background color (white in this example) */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        body {
+            margin: 0;
+            overflow: hidden; /* Prevent scrolling while the loader is visible */
+        }
+
+        body.loaded {
+            overflow: auto; /* Enable scrolling */
+        }
+
+        body.loaded #loader {
+            display: none;
+        }
+        body {
+            background-color: #2d3436;
+            background-image: linear-gradient(315deg, #2d3436 0%, #000000 74%);
+            color: #fff;
+            scroll-behavior: smooth; /* Added smooth scrolling */
+            top: 0;
+        }
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            text-align: left;
+            font-size: 2rem;
+            font-weight: bold;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+        }
+      
+/* Default size for small screens */
+.logo-img {
+    height: 55px; /* Adjust the height as needed */
+    width: auto; /* Maintain aspect ratio */
+    margin-top: 10px;
+}
+
+/* Size adjustment for larger screens */
+@media (min-width: 992px) {
+    .logo-container {
+        position: absolute;
+        right: 20px; /* Adjust the distance from the right as needed */
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .logo-img {
+        height: 60px; /* Adjust the height for larger screens */
+        margin-top: 0px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .logo-img {
+        height: 65px; /* Further adjustment for extra-large screens */
+    }
+}
+
+
+        .finance-theme .white {
+            color: white;
+        }
+        .finance-theme .green {
+            color: #3FFF00;
+        }
+        .carousel-inner .carousel-item, .blog-card {
+            position: relative;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.001); /* Adjust the opacity as needed */
+            z-index: 1;
+        }
+        .carousel-inner img {
+            height: 240px; /* Increased height */ /* Adjusted height to match blog cards */
+            object-fit: cover;
+            z-index: 0;
+            width: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            -webkit-filter: brightness(1);
+            filter: brightness(1);
+        }
+        
+        .carousel-caption, .card-body {
+            position: relative;
+            z-index: 2;
+        }
+        .blog-card {
+    background-color:  #1A1A1A; /* Slightly lighter dark gray color */
+    border: none;
+    color: lightgray;
+    border-radius: 20px;
+    box-shadow: 0px 5px 20px rgba(255, 255, 255, 0.005);
+    padding: 20px; /* Consistent padding */
+    font-size: small;
+    top: -20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 145px; /* Adjust height as needed */
+    width: auto;
+}
+.green {
+    color: #3FFF00;
+}
+.white {
+    color: white;
+}
+.blog-card i.fa {
+    font-size: 1.7rem; /* Adjusted icon size */
+}
+
+.card-title {
+    font-size: 1.0rem; /* Adjust the size as needed */
+    font-weight: bold; /* Adjust the weight as needed */
+}  
+/* Make sure the cards are always in two columns */
+.col-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+        .blog-card img {
+            height: 200px;
+            object-fit: cover;
+            border-radius: 15px;
+            width: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            -webkit-filter: brightness(1);
+            filter: brightness(1);
+        }
+    /* Navbar Styling */
+.navbar {
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.3); /* Existing background */
+    background-color: #000000; /* Your desired background color */
+    z-index: 1000;
+    text-align: left;
+    font-size: 2rem;
+    font-weight: bold;
+    width: 100%;
+}
+
+.navbar-brand .white {
+    color: white;
+    font-size: 2rem;
+}
+
+.navbar-brand .green {
+    color: #3FFF00;
+    font-size: 2rem;
+}
+
+.navbar-nav .nav-link {
+    color: white;
+    font-weight: bold;
+    font-size: 1.1rem; /* Adjust font size as needed */
+    padding: 10px 15px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #3FFF00;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
+
+.nav-item {
+    margin-left: 15px;
+}
+
+.nav-item .dropdown-menu {
+    background-color: rgba(0, 0, 0, 0.8);
+    border: none;
+    border-radius: 10px;
+}
+
+.nav-item .dropdown-item {
+    color: #fff;
+    font-size: 0.9rem;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.nav-item .dropdown-item:hover {
+    color: #3FFF00;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.navbar-toggler {
+    border: none;
+    background: transparent; /* Make sure the button is transparent */
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.navbar-toggler:focus {
+    outline: none;
+    box-shadow: none; /* This removes any box-shadow that might appear */
+}
+.navbar-toggler-icon {
+    display: none; /* Hide the default icon */
+}
+       
+      
+       
+        @media (max-width: 768px) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+/* Increase height for large screens (laptops, PCs) */
+@media (min-width: 992px) {
+    .carousel-inner img {
+        height: 350px; /* Adjust the height as needed */
+    }
+}
+/* Keyframes for the chosen animation effect */
+/* Keyframes for the chosen animation effect */
+/* Keyframes for the chosen animation effect */
+/* Keyframes for the chosen animation effect */
+ /* Your CSS styles go here */
+/* Your CSS styles go here */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 9999; /* Sit on top */
+    left: 0;
+    top: 1;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.3); /* Dark transparent background */
+
+}
+
+.modal-content {
+    background-color: rgba(0, 0, 0, 0.8); /* Slightly opaque background */
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    border-radius: 10px; /* Rounded corners */
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.close {
+    color: red;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#installBtn {
+    background: transparent; /* Transparent background */
+    border: 2px solid #3FFF00; /* Green border color */
+    color: #3FFF00; /* Green text color */
+    padding: 10px 20px; /* Adjust padding for buttons */
+    cursor: pointer;
+    border-radius: 20px; /* Capsule shape */
+}
+
+#installBtn:hover {
+    background: rgba(0, 255, 0, 0.1); /* Light green background on hover */
+}
+
+/* Responsive styles for large screens */
+@media (min-width: 1024px) {
+    .modal-content {
+        width: 50%; /* Adjust width for larger screens */
+        padding: 30px; /* Increase padding for larger screens */
+        font-size: 1.2rem; /* Increase font size for larger screens */
+    }
+    #installBtn {
+        padding: 10px 30px; /* Increase padding for buttons on larger screens */
+        border-width: 3px; /* Increase border width for buttons on larger screens */
+    }
+}
+
+
+.mt-5 pt-5 {
+    margin-top: 20px;
+}
+
+    </style>
+
+</head>
+<body>
+    <div id="loader">
+        <img src="lion-fotor-2025021423140.png" alt="Loading..." class="logo-img">
+    </div>
+    <div id="installModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeBtn">&times;</span>
+            <p>4street Magazine For Better Experience</p>
+            <button id="installBtn">Install</button>
+        </div>
+    </div>
+    <!-- The rest of your content goes here -->
+    
+    <div class="navbar navbar-expand-lg fixed-top">
+        <a class="navbar-brand finance-theme" href="#">
+            <span class="white">4str</span><span class="green">eet</span>
+        </a>
+        <div class="d-flex justify-content-end logo-container">
+            <a href="contact.html">
+                <img src="lion-fotor-2025021423140.png" alt="Contact Us" class="logo-img">
+            </a>
+        </div>
+    </div>
+    
+    
+    <div id="carouselExampleSlidesOnly" class="carousel slide mt-5 pt-5" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="overlay"></div>
+                <img src="bitcoin-3132574_1280.jpg" class="d-block w-100" alt="Mastering Digital Wealth">
+                <div class="carousel-caption d-none d-md-block">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Horizontal List Items Section -->
+<!-- Cards Section -->
+<div class="container mt-5 pt-5">
+    <div class="row">
+        <div class="col-6 mb-4">
+            <div class="card blog-card">
+                <a href="cryptopage.html" class="card-body text-center text-decoration-none">
+                    <i class="fa fa-coins fa-3x green"></i>
+                    <h5 class="card-title white">Crypto</h5>
+                </a>
+            </div>
+        </div>
+        <div class="col-6 mb-4">
+            <div class="card blog-card">
+                <a href="Businesspage.html" class="card-body text-center text-decoration-none">
+                    <i class="fa fa-briefcase fa-3x green"></i>
+                    <h5 class="card-title white">Business</h5>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6 mb-4">
+            <div class="card blog-card">
+                <a href="Moneytips.html" class="card-body text-center text-decoration-none">
+                    <i class="fa fa-dollar-sign fa-3x green"></i>
+                    <h5 class="card-title white">MoneyTips</h5>
+                </a>
+            </div>
+        </div>
+        <div class="col-6 mb-4">
+            <div class="card blog-card">
+                <a href="Investingpage.html" class="card-body text-center text-decoration-none">
+                    <i class="fa fa-chart-line fa-3x green"></i>
+                    <h5 class="card-title white">Investing</h5>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6 mb-4">
+            <div class="card blog-card">
+                <a href="Fintechpage.html" class="card-body text-center text-decoration-none">
+                    <i class="fa fa-mobile-alt fa-3x green" aria-label="FinTech Icon"></i>
+                    <h5 class="card-title white">FinTech</h5>
+                </a>
+            </div>
+        </div>
+        <div class="col-6 mb-4">
+            <div class="card blog-card">
+                <a href="mindset.html" class="card-body text-center text-decoration-none">
+                    <i class="fas fa-lightbulb fa-3x green" aria-label="Mindset Icon"></i>  <h5 class="card-title white">Mindset</h5> </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        console.log('Attempting to register ServiceWorker...');
+        navigator.serviceWorker.register('/service-worker.js')
+            .then(registration => {
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+
+                // Check for updates to the service worker
+                registration.onupdatefound = () => {
+                    const installingWorker = registration.installing;
+                    installingWorker.onstatechange = () => {
+                        if (installingWorker.state === 'installed') {
+                            if (navigator.serviceWorker.controller) {
+                                console.log('New or updated service worker installed. Reloading the page...');
+                                // New service worker available, reload the page to activate
+                                window.location.reload();
+                            } else {
+                                console.log('Service worker is installed and running.');
+                            }
+                        }
+                    };
+                };
+            })
+            .catch(error => {
+                console.error('ServiceWorker registration failed: ', error);
+            });
+    });
+} else {
+    console.error('Service workers are not supported in this browser.');
+}
+
+window.addEventListener('load', function () {
+    document.body.classList.add('loaded');
+    console.log('Page loaded, waiting for beforeinstallprompt event...');
+});
+
+function isAppInstalled() {
+    return window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+}
+
+let deferredPrompt;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+    console.log('beforeinstallprompt event fired');  // Debugging log
+    e.preventDefault();  // Prevent the mini-infobar from appearing on mobile
+    deferredPrompt = e;
+    console.log('Deferred prompt stored.');
+
+    if (!isAppInstalled()) {
+        const installModal = document.getElementById('installModal');
+        installModal.style.display = 'block';  // Show the install modal
+        console.log('Install modal should be visible.');
+    } else {
+        console.log('App is already installed.');
+    }
+});
+
+document.getElementById('installBtn').addEventListener('click', () => {
+    console.log('Install button clicked');
+    if (deferredPrompt) {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then((choiceResult) => {
+            if (choiceResult.outcome === 'accepted') {
+                console.log('User accepted the install prompt');
+            } else {
+                console.log('User dismissed the install prompt');
+            }
+            deferredPrompt = null;
+            const installModal = document.getElementById('installModal');
+            installModal.style.display = 'none';  // Hide the install modal after prompting
+            console.log('Install modal hidden.');
+        });
+    }
+});
+
+document.getElementById('closeBtn').addEventListener('click', () => {
+    const installModal = document.getElementById('installModal');
+    installModal.style.display = 'none';
+    console.log('Close button clicked, install modal hidden.');
+});
+
+// Close the modal if the user clicks anywhere outside of it
+window.addEventListener('click', (event) => {
+    const installModal = document.getElementById('installModal');
+    if (event.target === installModal) {
+        installModal.style.display = 'none';
+        console.log('Clicked outside the modal, install modal hidden.');
+    }
+});
+
+      </script>
+      
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

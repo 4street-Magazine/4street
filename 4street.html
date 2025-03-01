@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Feed Page</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212;
+        }
+        .container {
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-top: 30px;
+        }
+        .card {
+            border: none;
+            border-radius: 28px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 4px 9px rgba(0, 0, 0, 0.1); /* Add box shadow */
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transition */
+            width: auto;
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            display: block;
+             /* Apply black and white filter */
+        }
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.68); /* Semi-transparent black overlay */
+            z-index: 1;
+        }
+        .card-body {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.18);
+            color: #fff;
+            padding: 20px;
+            z-index: 2; /* Ensure it appears above the overlay */
+            
+        }
+        .card-title {
+            color: #fff;
+        }
+        .text-muted {
+            color: #ddd !important;
+        }
+        .card:hover {
+            transform: translateY(-10px); /* Floating effect on hover */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+        }
+        
+    .play-button {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        color: #39FF14;
+        font-size: 30px; /* Increase the font size */
+        z-index: 3;
+        
+        border-radius: 50%;
+        width: 45px; /* Adjust width to fit larger icon */
+        height: 45px; /* Adjust height to fit larger icon */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+        /* Responsive styling */
+        @media (max-width: 768px) {
+            .container {
+                margin-top: 10px;
+                padding: 10px;
+            }
+            .card-body {
+                padding: 15px;
+            }
+        }
+    </style>
+    
+    >
+    
+    
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <h1 class="text-center mb-4">Feed Page</h1>
+                <div id="feed"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const posts = [
+            {
+                user: "The Modern Day Scam",
+                content: "This is Alice's first post!",
+                timestamp: "10 mins ago",
+                image: "dollars-499481_1280.jpg"
+            },
+            {
+                user: "Get Rich Or Die Trying",
+                content: "its a true",
+                timestamp: "2 hours ago",
+                image: "bitcoin-6231930_1280.jpg"
+            },
+            {
+                user: "Its All A lie",
+                content: "Charlie just completed a marathon!",
+                timestamp: "1 day ago",
+                image: "bitcoin-3132574_1280.jpg"
+            }
+        ];
+    
+        const feed = document.getElementById('feed');
+    
+        posts.forEach(post => {
+            const postElement = document.createElement('div');
+            postElement.classList.add('card', 'mt-3');
+            
+            postElement.innerHTML = `
+                <img src="${post.image}" class="card-img" alt="${post.user}'s post image">
+                <i class="fas fa-play-circle play-button"></i>
+                <div class="card-body">
+                    <h5 class="card-title">${post.user}</h5>
+                    <p class="card-text">${post.content}</p>
+                    <p class="card-text"><small class="text-muted">${post.timestamp}</small></p>
+                </div>
+            `;
+            
+            feed.appendChild(postElement);
+        });
+    </script>
+    
+</body>
+</html>

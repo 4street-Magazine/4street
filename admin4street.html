@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="admin4street.css">
+</head>
+<body>
+    <div class="admin-container">
+        <h1>Admin Dashboard</h1>
+        <nav>
+            <ul>
+                <li><a href="/admin/posts">Manage Posts</a></li>
+            </ul>
+        </nav>
+        <section id="admin-content">
+            <div class="create-post-form">
+                <h2>Create New Post</h2>
+                <form id="create-post-form">
+                    <input type="text" id="post-title" placeholder="Title" required>
+                    <textarea id="post-content" placeholder="Content" required></textarea>
+                    <input type="text" id="post-category" placeholder="Category" required>
+                    <input type="date" id="post-date" required>
+                    <input type="text" id="post-image-url" placeholder="Image URL" required>
+                    <button type="submit" class="btn">Create Post</button>
+                </form>
+            </div>
+        </section>
+    </div>
+    <div class="container mt-5 pt-5" id="blog-cards-container">
+        <!-- Blog card template -->
+        <div id="blog-card-template" class="col-md-4" style="display: none;">
+            <div class="card blog-card">
+                <div class="overlay"></div>
+                <img src="" class="card-img-top" alt="">
+                <div class="fire-icon-wrapper">
+                    <i class="fas fa-fire fire-icon"></i>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title"></h5>
+                    <div class="blog-card-info">
+                        <div class="blog-card-category"></div>
+                        <div class="blog-card-date"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="admin4street.js"></script>
+</body>
+</html>
