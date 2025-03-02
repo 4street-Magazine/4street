@@ -81,11 +81,11 @@ body {
 }
 
 .navbar-brand {
-    font-size: 2rem;
+   
     font-weight: 700;
-    margin-left: -20px;
+    margin-left: -35px;
     transition: transform var(--transition-duration) ease;
-    margin-top: -13px;
+    margin-top: -20px;
 }
 
 .navbar-brand:hover {
@@ -94,10 +94,12 @@ body {
 
 .navbar-brand .white {
     color: var(--text-light);
+    font-size: 1.75rem;
 }
 
 .navbar-brand .green {
     color: var(--primary-color);
+    font-size: 1.75rem;
 }
 
 .navbar-nav .nav-link {
@@ -233,7 +235,7 @@ body {
 .content-card {
     position: relative;
     top: -1rem;
-    left: 0;
+    left: -7px;
     width: 100%;
     min-height: 70vh;
     background: rgba(0, 0, 0, 0.5);
@@ -447,6 +449,15 @@ body {
     .content-card {
         padding: 1.5rem;
     }
+    .content-card h2, .content-card h3 {
+        color: var(--text-light);
+        font-family: 'Poppins', sans-serif;
+        margin-bottom: 1.5rem;
+        font-size: 1.27rem;
+        font-weight: 600;
+        letter-spacing: 0.05em; /* Improve readability */
+    }
+    
 }
 
 /* Next Page Button Styles - styled to match website design*/
