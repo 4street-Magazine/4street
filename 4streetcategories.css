@@ -323,6 +323,10 @@ color: #28a745; /* Or any color you prefer for the active link */
     .navbar-nav {
         justify-content: center;
     }
+        
+.card-title {
+    font-size: 1rem;
+}
     
 .card-title {
     font-size: 1rem;

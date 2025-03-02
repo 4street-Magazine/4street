@@ -1,7 +1,7 @@
 const CACHE_NAME = 'my-blog-cache-v1'; // Updated cache version
 const HTML_FILES = [
     'blogpage.html',
-    '4streetHomepage.html',
+    'index.html',
     'Businesspage.html',
     'cryptopage.html',
     'Fintechpage.html',
