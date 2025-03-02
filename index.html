@@ -69,7 +69,7 @@
       
 /* Default size for small screens */
 .logo-img {
-    height: 55px; /* Adjust the height as needed */
+    height: 40px; /* Adjust the height as needed */
     width: auto; /* Maintain aspect ratio */
     margin-top: 10px;
 }
@@ -136,7 +136,7 @@
     border: none;
     color: lightgray;
     border-radius: 20px;
-    box-shadow: 0px 5px 20px rgba(255, 255, 255, 0.005);
+    box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.2);
     padding: 20px; /* Consistent padding */
     font-size: small;
     top: -20px;
@@ -153,7 +153,7 @@
     color: white;
 }
 .blog-card i.fa {
-    font-size: 1.7rem; /* Adjusted icon size */
+    font-size: 1.5rem; /* Adjusted icon size */
 }
 
 .card-title {
@@ -192,12 +192,12 @@
 
 .navbar-brand .white {
     color: white;
-    font-size: 2rem;
+    font-size: 1.75rem;
 }
 
 .navbar-brand .green {
     color: #3FFF00;
-    font-size: 2rem;
+    font-size: 1.75rem;
 }
 
 .navbar-nav .nav-link {
@@ -351,7 +351,7 @@
     <div id="installModal" class="modal">
         <div class="modal-content">
             <span class="close" id="closeBtn">&times;</span>
-            <p>4street Magazine For Better Experience</p>
+            <h2>4street Magazine</h2>
             <button id="installBtn">Install</button>
         </div>
     </div>
@@ -479,53 +479,6 @@ function isAppInstalled() {
 
 let deferredPrompt;
 
-window.addEventListener('beforeinstallprompt', (e) => {
-    console.log('beforeinstallprompt event fired');  // Debugging log
-    e.preventDefault();  // Prevent the mini-infobar from appearing on mobile
-    deferredPrompt = e;
-    console.log('Deferred prompt stored.');
-
-    if (!isAppInstalled()) {
-        const installModal = document.getElementById('installModal');
-        installModal.style.display = 'block';  // Show the install modal
-        console.log('Install modal should be visible.');
-    } else {
-        console.log('App is already installed.');
-    }
-});
-
-document.getElementById('installBtn').addEventListener('click', () => {
-    console.log('Install button clicked');
-    if (deferredPrompt) {
-        deferredPrompt.prompt();
-        deferredPrompt.userChoice.then((choiceResult) => {
-            if (choiceResult.outcome === 'accepted') {
-                console.log('User accepted the install prompt');
-            } else {
-                console.log('User dismissed the install prompt');
-            }
-            deferredPrompt = null;
-            const installModal = document.getElementById('installModal');
-            installModal.style.display = 'none';  // Hide the install modal after prompting
-            console.log('Install modal hidden.');
-        });
-    }
-});
-
-document.getElementById('closeBtn').addEventListener('click', () => {
-    const installModal = document.getElementById('installModal');
-    installModal.style.display = 'none';
-    console.log('Close button clicked, install modal hidden.');
-});
-
-// Close the modal if the user clicks anywhere outside of it
-window.addEventListener('click', (event) => {
-    const installModal = document.getElementById('installModal');
-    if (event.target === installModal) {
-        installModal.style.display = 'none';
-        console.log('Clicked outside the modal, install modal hidden.');
-    }
-});
 
       </script>
       
