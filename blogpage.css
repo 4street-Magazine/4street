@@ -513,3 +513,21 @@ opacity: 1;
         transform: translateX(-100%);
     }
 }
+
+@media (max-width: 768px) {
+    .navbar.fixed-bottom {
+        /* ... other styles ... */
+        min-height: 80px; /* Adjust this value */
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .nav-link i {
+        margin-bottom: 8px;
+    }
+    .navbar.fixed-bottom .nav-link i {
+        font-size: 20px !important;
+        color: lightgray !important;
+        margin-bottom: 0 !important;
+        margin-right: 8px !important;
+    }
+}

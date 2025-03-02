@@ -21,15 +21,27 @@
         color: darkgray; /* Icon color */
     }
     .navbar.fixed-bottom .nav-link i {
-        font-size: 23px;
-        color: whitesmoke; /* Icon color */
-        margin-bottom: 90px;
+        font-size: 21px;
+        color: lightgray; /* Icon color */
+        margin-bottom: 0; /* Remove the margin */
+        margin-right: 8px; /* Adjust this value for spacing */
+}
     }
     .navbar.fixed-bottom .nav-link.active i {
         color: #3FFF00 !important; /* Active icon color */
     }
+    
+    
+
+@media (max-width: 768px) {
     .navbar.fixed-bottom {
-        background-color: rgba(0, 0, 0, 0.76); /* Dark transparent background */
+        /* ... other styles ... */
+        min-height: 80px; /* Adjust this value */
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .nav-link i {
+        margin-bottom: 8px;
     }
 }
 
@@ -63,7 +75,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="4streetHomepage.html"><i class="fa fa-home"></i> Home</a>
+                        <a class="nav-link" href="index.html"><i class="fa fa-home"></i> Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="cryptopage.html"><i class="fa fa-coins"></i> Crypto</a>
@@ -158,6 +170,7 @@
     <button class="next-page-button" onclick="goToNextPage()">
         <i class="fas fa-chevron-right"></i>
     </button>
+     
     <nav class="navbar fixed-bottom navbar">
         <a class="nav-item nav-link active" href="4streetHomepage.html">
             <i class="fa fa-home"></i>
