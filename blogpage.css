@@ -258,10 +258,11 @@ body {
     font-size: 1.39rem;
     font-weight: 600;
     letter-spacing: 0.05em; /* Improve readability */
+    text-wrap: nowrap;
 }
 
 .content-card p {
-    font-size: 1.1rem;
+    font-size: 1rem;
     margin-bottom: 1.5rem;
     line-height: 1.8; /* Enhanced line height */
 }
