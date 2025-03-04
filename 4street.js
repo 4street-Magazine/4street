@@ -71,10 +71,10 @@ window.addEventListener('load', function() {
 
 // Function to set the active link
 function setActiveLink() {
-    const currentPath = window.location.pathname.split('/').pop(); // Get last part of path
+    const currentPath = window.location.pathname.split('/').pop();
     const navLinks = document.querySelectorAll('nav a');
     navLinks.forEach(link => {
-        const linkPath = link.pathname.split('/').pop(); // Get last part of path
+        const linkPath = link.pathname.split('/').pop().replace('.html', ''); // Remove .html
         console.log("Link Path:", linkPath, "Current Path:", currentPath);
         if (linkPath === currentPath) {
             link.classList.add('active');
