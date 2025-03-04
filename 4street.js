@@ -69,6 +69,7 @@ window.addEventListener('load', function() {
     console.log('Viewed Pages after load:', viewedPages);
 });
 
+// Function to set the active link
 function setActiveLink() {
     const currentPath = window.location.pathname.split('/').pop(); // Get last part of path
     const navLinks = document.querySelectorAll('nav a');
