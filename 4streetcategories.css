@@ -190,6 +190,29 @@ color: #28a745; /* Or any color you prefer for the active link */
 .blog-card:hover {
     transform: translateY(-5px);
 }
+/* Ad Style */
+#container-fe85c39092882c2f7d08b8cca8ce22de {
+    background-color: #0D0E0E;
+    border: none;
+    color: lightgray;
+    border-radius: 20px;
+    box-shadow: 0px 5px 20px rgba(255, 255, 255, 0.4); /* Matches blog/ad card shadow */
+    padding-top: 85px;
+    padding-bottom: 35px;
+    width: 1300px; /* Consistent width */
+    height: 550px; /* Consistent height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    transition: transform 0.2s ease-in-out;
+    margin-top: -190px;
+}
+
+#container-fe85c39092882c2f7d08b8cca8ce22de:hover {
+    transform: scale(1.05); /* Subtle hover effect */
+}
 
 .overlay {
     position: absolute;
